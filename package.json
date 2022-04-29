@@ -1,0 +1,23 @@
+{
+  "name": "poetry-bot",
+  "version": "1.0.0",
+  "description": "Posts a random selection of poems every few hours daily on Twitter.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js"
+  },
+  "author": "Furkan Güler",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-async-handler": "^1.2.0",
+    "text-to-image": "^5.2.0",
+    "twit": "^2.2.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
