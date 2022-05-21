@@ -26,6 +26,10 @@ const postPoem = asyncHandler(async (poem) => {
       var mediaIdStr = data.media_id_string;
       var altText = poem.title + " by " + poem.author;
 
+      if (altText.length < 273) {
+        altText += " #poetry";
+      }
+
       var meta_params = { media_id: mediaIdStr, alt_text: { text: altText } };
 
       client.post(
@@ -34,7 +38,7 @@ const postPoem = asyncHandler(async (poem) => {
         function (err, data, response) {
           if (!err) {
             var params = {
-              status: poem.title + " by " + poem.author,
+              status: altText,
               media_ids: [mediaIdStr],
             };
 
