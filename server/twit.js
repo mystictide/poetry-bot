@@ -46,7 +46,6 @@ const postPoem = asyncHandler(async (poem) => {
               "statuses/update",
               params,
               function (err, data, response) {
-                console.log(data);
               }
             );
           }
