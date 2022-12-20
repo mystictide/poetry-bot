@@ -45,8 +45,7 @@ const postPoem = asyncHandler(async (poem) => {
             client.post(
               "statuses/update",
               params,
-              function (err, data, response) {
-              }
+              function (err, data, response) {}
             );
           }
         }

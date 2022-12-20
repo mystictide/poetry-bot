@@ -1,6 +1,7 @@
 const express = require("express");
 const req = require("express/lib/request");
 const dotenv = require("dotenv").config();
+const favicon = require("serve-favicon");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const twit = require("./twit");
 const port = process.env.PORT || 4141;
@@ -9,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use(favicon("favicon.ico"));
 // twit.poemPoster();
 // setInterval(function () {
 //   twit.poemPoster();
