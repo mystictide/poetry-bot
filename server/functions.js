@@ -4,14 +4,13 @@ const helpers = require("./helpers");
 
 const getPoem = asyncHandler(async (req) => {
   let Poem = "";
-  let url = "https://poetrydb.org/random/1/author,title,lines.json";
   await axios({
-    method: "GET",
-    url: url,
-  }).then((res) => {
-    Poem = res.data[0];
+    method: "get",
+    url: "https://poetrydb.org/random/1/author,title,lines.json",
+    headers: { "Accept-Encoding": "gzip,deflate,compress" } 
+  }).then((response) => {
+    Poem = response.data[0];
   });
-
   if (Poem.lines.length > 25) {
     await getAnotherPoem();
   } else {
