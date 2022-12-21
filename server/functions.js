@@ -20,19 +20,10 @@ const getPoem = asyncHandler(async (req) => {
   }
 });
 
-const pingRender = asyncHandler(async (req) => {
-  await axios({
-    method: "get",
-    url: "https://orpheus-bot.onrender.com/",
-    headers: { "Accept-Encoding": "gzip,deflate,compress" },
-  });
-});
-
 const getAnotherPoem = asyncHandler(async (req) => {
   await getPoem();
 });
 
 module.exports = {
   getPoem,
-  pingRender,
 };

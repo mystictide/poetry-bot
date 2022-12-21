@@ -12,6 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(favicon("favicon.ico"));
+
 // twit.poemPoster();
 // setInterval(function () {
 //   twit.poemPoster();
@@ -21,11 +22,6 @@ app.use(errorHandler);
 app.get("/", (req, res) => {
   twit.poemPoster();
   res.send("orpheus laments");
-});
-
-app.post("/ping", (req, res) => {
-  functions.pingRender();
-  res.send("pinged");
 });
 
 app.use("/static", express.static(__dirname + "/fonts"));
