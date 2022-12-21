@@ -4,6 +4,7 @@ const dotenv = require("dotenv").config();
 const favicon = require("serve-favicon");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const twit = require("./twit");
+const functions = require("./functions");
 const port = process.env.PORT || 4141;
 
 const app = express();
@@ -21,5 +22,11 @@ app.get("/", (req, res) => {
   twit.poemPoster();
   res.send("orpheus laments");
 });
+
+app.post("/ping", (req, res) => {
+  functions.pingRender();
+  res.send("pinged");
+});
+
 app.use("/static", express.static(__dirname + "/fonts"));
 app.listen(port, () => console.log(`server started on port: ${port}`));

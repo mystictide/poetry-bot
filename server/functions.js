@@ -7,7 +7,7 @@ const getPoem = asyncHandler(async (req) => {
   await axios({
     method: "get",
     url: "https://poetrydb.org/random/1/author,title,lines.json",
-    headers: { "Accept-Encoding": "gzip,deflate,compress" } 
+    headers: { "Accept-Encoding": "gzip,deflate,compress" },
   }).then((response) => {
     Poem = response.data[0];
   });
@@ -20,10 +20,19 @@ const getPoem = asyncHandler(async (req) => {
   }
 });
 
+const pingRender = asyncHandler(async (req) => {
+  await axios({
+    method: "get",
+    url: "https://orpheus-bot.onrender.com/",
+    headers: { "Accept-Encoding": "gzip,deflate,compress" },
+  });
+});
+
 const getAnotherPoem = asyncHandler(async (req) => {
   await getPoem();
 });
 
 module.exports = {
   getPoem,
+  pingRender,
 };
