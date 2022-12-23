@@ -24,4 +24,4 @@ jobs:
       run: docker build . --file Dockerfile --tag poetry:$(date +%s)
     - name: docker push
       run: |
-        docker push docker push mystictide/poetry:$(date +%s)
+        docker push mystictide/poetry:$(date +%s)
