@@ -21,7 +21,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag poetry:latest
+      run: docker build . --file Dockerfile --tag mystictide/poetry:latest
     - name: docker push
       run: |
         docker push mystictide/poetry:latest
